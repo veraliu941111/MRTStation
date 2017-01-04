@@ -116,26 +116,26 @@ class MRTList: UITableViewController {
         return cell
     }
     
-//    // MARK: - Segue Handling
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showDetail" {
-//            
-//            guard let destination = segue.destination as? MRTDetail else {
-//                return
-//            }
-//            guard let cell = sender as? UITableViewCell else {
-//                return
-//            }
-//            guard let indexPath = self.tableView.indexPath(for:cell) else {
-//                return
-//            }
-//            
-//            let stations = mrtMapper[lines[indexPath.section]]
-//            let station = stations?[indexPath.row]
-//            //destination.station = station
-//            
-//        } else {
-//            super.prepare(for: segue, sender: sender)
-//        }
-//    }
+    // MARK: - Segue Handling
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            
+            guard let destination = segue.destination as? MRTDetail else {
+                return
+            }
+            guard let cell = sender as? UITableViewCell else {
+                return
+            }
+            guard let indexPath = self.tableView.indexPath(for:cell) else {
+                return
+            }
+            
+            let stations = mrtMapper[lines[indexPath.section]]
+            let station = stations?[indexPath.row]
+            destination.station = station
+            
+        } else {
+            super.prepare(for: segue, sender: sender)
+        }
+    }
 }
